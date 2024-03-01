@@ -23,7 +23,7 @@ export const RecipePage = ({ item, clickFn }) => {
     <Box minH="100vh" display="flex" backgroundColor="#42A5F5">
       <Center>
         <Box backgroundColor="white" w="60%" h="100%">
-          <ReturnBtn clickFn={clickFn}></ReturnBtn>
+          <ReturnBtn clickFn={clickFn} />
           <Image objectFit="cover" h={300} w="100%" src={image} alt={label} />
           <Flex flexDir="row">
             <Flex w="50%" flexDir="column" m={10}>
