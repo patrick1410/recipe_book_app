@@ -55,7 +55,12 @@ export const Item = ({ item, clickFn }) => {
           <Tag background="none" color="grey" textTransform="uppercase">
             {mealType}
           </Tag>
-          <Heading m={1} size="lg" fontWeight="semi-bold" textAlign="center">
+          <Heading
+            m={1}
+            size="lg"
+            fontWeight={{ base: "medium" }}
+            textAlign="center"
+          >
             {label}
           </Heading>
           <Box>

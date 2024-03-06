@@ -3,7 +3,9 @@ import { SearchIcon } from "@chakra-ui/icons";
 export const TextInput = ({ value, changeFn }) => {
   return (
     <Flex justifyContent="center">
-      <InputGroup w="40%">
+      <InputGroup
+        w={{ base: "90%", sm: "60%", md: "50%", lg: "40%", xl: "30%" }}
+      >
         <InputLeftElement
           pointerEvents="none"
           children={<SearchIcon color="gray" />}
