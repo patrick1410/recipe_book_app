@@ -11,7 +11,7 @@ export const Nutrients = ({ nutrients }) => {
   };
 
   return (
-    <Box w="100%" display="flex" flexDir="row">
+    <Box w="100%" display="flex" flexDir="row" flexWrap="wrap">
       {Object.entries(filteredNutrients).map(([index, nutrients]) => (
         <Box key={index}>
           <Box>

@@ -4,7 +4,16 @@ import { IngredientList } from "../components/IngredientList";
 import { AllHealthLabels } from "../components/AllHealthLabels";
 import { Nutrients } from "../components/Nutrients";
 import { ReturnBtn } from "../components/ReturnBtn";
-import { Box, Image, Flex, Center, Tag, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Flex,
+  Center,
+  Tag,
+  Heading,
+  Text,
+  Spacer,
+} from "@chakra-ui/react";
 
 export const RecipePage = ({ item, clickFn }) => {
   const {
@@ -20,13 +29,20 @@ export const RecipePage = ({ item, clickFn }) => {
   } = item.recipe;
 
   return (
-    <Box minH="100vh" display="flex" backgroundColor="#42A5F5">
+    <Box minH="100vh" backgroundColor="#42A5F5">
       <Center>
-        <Box backgroundColor="white" w="60%" h="100%">
+        <Box
+          backgroundColor="white"
+          w={{ base: "100%", md: "80%", lg: "60%" }}
+          h="100%"
+        >
           <ReturnBtn clickFn={clickFn} />
           <Image objectFit="cover" h={300} w="100%" src={image} alt={label} />
-          <Flex flexDir="row">
-            <Flex w="50%" flexDir="column" m={10}>
+          <Flex
+            flexDir={{ base: "column", lg: "row" }}
+            alignItems={{ base: "center", lg: "flex-start" }}
+          >
+            <Flex w={{ base: "90%" }} flexDir="column" m={{ base: 5, lg: 10 }}>
               <Tag
                 p={0}
                 background="none"
@@ -50,7 +66,9 @@ export const RecipePage = ({ item, clickFn }) => {
               <IngredientList ingredients={ingredientLines} />
             </Flex>
 
-            <Flex w="50%" flexDir="column" m={10}>
+            <Spacer border="1px solid" color="gray.200" />
+
+            <Flex w={{ base: "90%" }} flexDir="column" m={{ base: 5, lg: 10 }}>
               <Text ml={1}>Health labels:</Text>
               <Box>
                 <AllHealthLabels labels={healthLabels} />
