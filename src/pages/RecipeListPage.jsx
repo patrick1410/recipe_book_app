@@ -26,8 +26,12 @@ export const RecipeListPage = ({ clickFn }) => {
 
   return (
     <Box>
-      <Header />
-      <TextInput value={searchField} changeFn={handleFilter} />
+      <Header color="#fff" text="📙 Recipe Book App 🍽️" />
+      <TextInput
+        value={searchField}
+        changeFn={handleFilter}
+        placeholder="Search recipe by name or health label..."
+      />
       <RecipeList filteredRecipes={filteredRecipes} clickFn={clickFn} />
     </Box>
   );

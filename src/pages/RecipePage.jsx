@@ -1,7 +1,4 @@
-import { DietLabels } from "../components/DietLabels";
-import { Cautions } from "../components/Cautions";
 import { IngredientList } from "../components/IngredientList";
-import { AllHealthLabels } from "../components/AllHealthLabels";
 import { Nutrients } from "../components/Nutrients";
 import { ReturnBtn } from "../components/ReturnBtn";
 import {
@@ -14,6 +11,7 @@ import {
   Text,
   Spacer,
 } from "@chakra-ui/react";
+import { Label } from "../components/Label";
 
 export const RecipePage = ({ item, clickFn }) => {
   const {
@@ -71,7 +69,14 @@ export const RecipePage = ({ item, clickFn }) => {
             <Flex w={{ base: "90%" }} flexDir="column" m={{ base: 5, lg: 10 }}>
               <Text ml={1}>Health labels:</Text>
               <Box>
-                <AllHealthLabels labels={healthLabels} />
+                {healthLabels.map((label, key) => (
+                  <Label
+                    key={key}
+                    label={label}
+                    color="purple"
+                    bgColor="purple.100"
+                  />
+                ))}
               </Box>
               <Text ml={1} mt={2}>
                 {dietLabels.length === null && null}
@@ -79,7 +84,14 @@ export const RecipePage = ({ item, clickFn }) => {
                 {dietLabels.length > 1 && "Diëts"}
               </Text>
               <Box>
-                <DietLabels labels={dietLabels} />
+                {dietLabels.map((label, key) => (
+                  <Label
+                    key={key}
+                    label={label}
+                    color="green"
+                    bgColor="green.100"
+                  />
+                ))}
               </Box>
               <Text ml={1} mt={2}>
                 {cautions.length === null && null}
@@ -87,7 +99,14 @@ export const RecipePage = ({ item, clickFn }) => {
                 {cautions.length > 1 && "Cautions:"}
               </Text>
               <Box>
-                <Cautions cautions={cautions} />
+                {cautions.map((label, key) => (
+                  <Label
+                    key={key}
+                    label={label}
+                    color="red"
+                    bgColor="red.100"
+                  />
+                ))}
               </Box>
               <Text ml={1} mt={2} fontWeight="bold">
                 Total nutrients:

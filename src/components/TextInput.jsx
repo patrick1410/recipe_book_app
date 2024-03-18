@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputLeftElement, Flex } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-export const TextInput = ({ value, changeFn }) => {
+export const TextInput = ({ value, changeFn, placeholder }) => {
   return (
     <Flex justifyContent="center">
       <InputGroup
@@ -14,7 +14,7 @@ export const TextInput = ({ value, changeFn }) => {
           border="none"
           backgroundColor="#fff"
           mb={10}
-          placeholder="Search recipe by name or health label..."
+          placeholder={placeholder}
           size="md"
           type="text"
           value={value}

@@ -1,6 +1,4 @@
-import { HealthLabels } from "./HealthLabels";
-import { DietLabels } from "./DietLabels";
-import { Cautions } from "./Cautions";
+import { Label } from "./Label";
 import {
   Card,
   Image,
@@ -35,6 +33,10 @@ export const Item = ({ item, clickFn }) => {
     cautions,
   } = item.recipe;
 
+  const filteredLabels = healthLabels.filter(
+    (label) => label === "Vegetarian" || label === "Vegan"
+  );
+
   return (
     <Card
       onClick={() => clickFn(item)}
@@ -64,10 +66,24 @@ export const Item = ({ item, clickFn }) => {
             {label}
           </Heading>
           <Box>
-            <HealthLabels labels={healthLabels} />
+            {filteredLabels.map((label, key) => (
+              <Label
+                key={key}
+                label={label}
+                color="purple"
+                bgColor="purple.100"
+              />
+            ))}
           </Box>
           <Box>
-            <DietLabels labels={dietLabels} />
+            {dietLabels.map((label, key) => (
+              <Label
+                key={key}
+                label={label}
+                color="green"
+                bgColor="green.100"
+              />
+            ))}
           </Box>
           <Text>
             Dish:
@@ -81,7 +97,9 @@ export const Item = ({ item, clickFn }) => {
             {cautions.length > 1 && "Cautions:"}
           </Text>
           <SimpleGrid columns={cautions.length >= 2 && 2}>
-            <Cautions cautions={cautions} />
+            {cautions.map((label, key) => (
+              <Label key={key} label={label} color="red" bgColor="red.100" />
+            ))}
           </SimpleGrid>
         </Center>
       </CardBody>
